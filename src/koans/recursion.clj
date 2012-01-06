@@ -13,10 +13,11 @@
 (defn recursive-reverse [coll]
   (reverse coll))
 
-(defn factorial [n]
-  (if (< n 2)
-      1
-      (* n (factorial (dec n)))))
+(defn factorial [x]
+  (loop [n x f 1]
+    (if (= n 1) f
+        (recur (dec n) (* f n)))))
+
 
 (meditations
   "Recursion ends with a base case"
